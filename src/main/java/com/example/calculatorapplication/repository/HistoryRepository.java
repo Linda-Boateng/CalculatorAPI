@@ -1,6 +1,6 @@
-package com.example.CalculatorApplication.repository;
+package com.example.calculatorapplication.repository;
 
-import com.example.CalculatorApplication.model.History;
+import com.example.calculatorapplication.model.History;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.example.CalculatorApplication.model;
+package com.example.calculatorapplication.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;

@@ -1,9 +1,9 @@
-package com.example.CalculatorApplication.service;
+package com.example.calculatorapplication.service.historyservice;
 
-import com.example.CalculatorApplication.model.History;
-import com.example.CalculatorApplication.model.OperationInput;
-import com.example.CalculatorApplication.model.OperationResponse;
-import com.example.CalculatorApplication.repository.HistoryRepository;
+import com.example.calculatorapplication.model.History;
+import com.example.calculatorapplication.model.OperationInput;
+import com.example.calculatorapplication.model.OperationResponse;
+import com.example.calculatorapplication.repository.HistoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class HistoryServiceImpl implements  HistoryService {
+public class HistoryServiceImpl implements HistoryService {
     private final HistoryRepository historyRepository;
 
     @Override
