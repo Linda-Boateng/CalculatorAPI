@@ -7,7 +7,7 @@ import com.example.calculatorapplication.model.OperationResponse;
 import java.util.List;
 
 public interface HistoryService {
-    void saveHistory(OperationInput request, OperationResponse response);
+    void saveCalculation(double operand1, double operand2, String operator, double result);
 
     List<History> getAllHistory();
 }

@@ -10,6 +10,4 @@ import lombok.Setter;
 public class OperationInput {
     private double operand1;
     private double operand2;
-    private  String operator;
-
 }
