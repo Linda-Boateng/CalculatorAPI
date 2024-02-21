@@ -1,12 +1,14 @@
 package com.example.calculatorapplication.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.RequiredArgsConstructor;
 
-@Setter
-@Getter
 @Data
+@Builder
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class OperationInput {
     private double operand1;
     private double operand2;
