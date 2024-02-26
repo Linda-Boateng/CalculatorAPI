@@ -6,8 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
 @Builder
+@AllArgsConstructor
 public class ErrorResponse {
     private String path;
     private String message;

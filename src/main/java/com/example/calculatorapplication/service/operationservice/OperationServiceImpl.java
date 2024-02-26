@@ -1,6 +1,5 @@
 package com.example.calculatorapplication.service.operationservice;
 
-import com.example.calculatorapplication.exception.InvalidInputException;
 import com.example.calculatorapplication.model.History;
 import com.example.calculatorapplication.repository.HistoryRepository;
 import lombok.RequiredArgsConstructor;
@@ -30,7 +29,7 @@ public class OperationServiceImpl implements OperationService {
     public double divide(double operand1, double operand2) {
         validateOperands(operand1,operand2);
         if (operand2 == 0) {
-      throw new InvalidInputException("Cannot divide by zero");
+      throw new IllegalArgumentException("Cannot divide by zero");
         }
         double result = operand1 / operand2;
         saveHistory(operand1 + " / " +operand2 +" = " + result);
@@ -47,7 +46,7 @@ public class OperationServiceImpl implements OperationService {
 
     private void validateOperands(double operand1, double operand2) {
         if (Double.isInfinite(operand1) || Double.isInfinite(operand2) || Double.isNaN(operand1) || Double.isNaN(operand2)) {
-      throw new InvalidInputException(" Please enter valid numeric values");
+      throw new IllegalArgumentException(" Please enter valid numeric values");
         }
     }
 
