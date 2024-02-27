@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface HistoryService {
     List<History> getAllHistory();
-
+    void reset();
 }

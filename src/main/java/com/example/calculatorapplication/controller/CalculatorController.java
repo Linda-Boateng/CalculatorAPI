@@ -2,6 +2,7 @@ package com.example.calculatorapplication.controller;
 
 import com.example.calculatorapplication.model.History;
 import com.example.calculatorapplication.model.OperationInput;
+import com.example.calculatorapplication.repository.HistoryRepository;
 import com.example.calculatorapplication.service.historyservice.HistoryService;
 import com.example.calculatorapplication.service.operationservice.OperationService;
 import java.util.List;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class CalculatorController {
     private final OperationService calculator;
     private final HistoryService history;
+    private final HistoryRepository historyRepository;
 
 
     @PostMapping("/addition")
@@ -40,5 +42,11 @@ public class CalculatorController {
     @GetMapping("/history")
     public ResponseEntity<List<History>> getHistory() {
         return new ResponseEntity<>(history.getAllHistory(),HttpStatus.OK);
+    }
+
+    @DeleteMapping("/reset")
+    public  ResponseEntity<Object> resetHistory(){
+        history.reset();
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

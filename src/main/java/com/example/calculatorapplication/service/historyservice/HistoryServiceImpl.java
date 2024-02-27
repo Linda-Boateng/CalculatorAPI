@@ -15,5 +15,8 @@ public class HistoryServiceImpl implements HistoryService {
     public List<History> getAllHistory() {
         return historyRepository.findAll();
     }
-
+    @Override
+    public void reset() {
+        historyRepository.deleteAll();
+    }
 }
