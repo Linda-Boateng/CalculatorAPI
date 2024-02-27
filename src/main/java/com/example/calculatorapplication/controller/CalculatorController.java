@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/calculate")
+@RequestMapping("/api/calculates")
 @RequiredArgsConstructor
 public class CalculatorController {
     private final OperationService calculator;
