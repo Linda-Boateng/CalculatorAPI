@@ -2,8 +2,6 @@ package com.example.calculatorapplication.service.memoryservice;
 
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-
 @Service
 public class MemoryServiceImpl implements  MemoryService {
     private double memory = 0.0;

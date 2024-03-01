@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.*;
 public class MemoryController {
    private final MemoryService memoryService;
 
+    /*
+     The endpoint for saving value to memory
+      */
     @Operation(
             responses = {
                     @io.swagger.v3.oas.annotations.responses.ApiResponse(
@@ -35,6 +38,9 @@ public class MemoryController {
         return ResponseEntity.ok().build();
     }
 
+    /*
+     The endpoint for subtracting from memory
+      */
     @Operation(
             responses = {
                     @io.swagger.v3.oas.annotations.responses.ApiResponse(
@@ -53,6 +59,9 @@ public class MemoryController {
         return ResponseEntity.ok().build();
     }
 
+    /*
+     The endpoint for clearing memory
+      */
     @Operation(
             responses = {
                     @io.swagger.v3.oas.annotations.responses.ApiResponse(
@@ -71,6 +80,9 @@ public class MemoryController {
         return ResponseEntity.ok().build();
     }
 
+    /*
+     The endpoint for displaying value from memory
+      */
     @Operation(
             responses = {
                     @io.swagger.v3.oas.annotations.responses.ApiResponse(

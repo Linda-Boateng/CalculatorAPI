@@ -5,17 +5,19 @@ import com.example.calculatorapplication.model.History;
 import com.example.calculatorapplication.model.OperationInput;
 import com.example.calculatorapplication.service.historyservice.HistoryService;
 import com.example.calculatorapplication.service.operationservice.OperationService;
-import java.util.List;
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/*
+Controller class for handling arithmetic operations
+ */
 @RestController
 @RequestMapping("/api/calculates")
 @RequiredArgsConstructor
@@ -24,7 +26,9 @@ public class CalculatorController {
     private final OperationService calculator;
     private final HistoryService history;
 
-
+    /*
+    The endpoint for performing additions
+     */
     @Operation(
             responses = {
                     @io.swagger.v3.oas.annotations.responses.ApiResponse(
@@ -42,6 +46,9 @@ public class CalculatorController {
         return new ResponseEntity<>(calculator.add(request.getOperand1(), request.getOperand2()),HttpStatus.OK);
     }
 
+    /*
+    The endpoint for performing subtractions
+     */
     @Operation(
             responses = {
                     @io.swagger.v3.oas.annotations.responses.ApiResponse(
@@ -59,6 +66,9 @@ public class CalculatorController {
         return new ResponseEntity<>(calculator.subtract(request.getOperand1(), request.getOperand2()),HttpStatus.OK);
     }
 
+    /*
+    The endpoint for performing division
+     */
     @Operation(
             responses = {
                     @io.swagger.v3.oas.annotations.responses.ApiResponse(
@@ -76,6 +86,9 @@ public class CalculatorController {
         return new ResponseEntity<>(calculator.divide(request.getOperand1(), request.getOperand2()),HttpStatus.OK);
     }
 
+    /*
+    The endpoint for performing multiplication
+     */
     @Operation(
             responses = {
                     @io.swagger.v3.oas.annotations.responses.ApiResponse(
@@ -93,6 +106,9 @@ public class CalculatorController {
         return new ResponseEntity<>(calculator.multiply(request.getOperand1(), request.getOperand2()),HttpStatus.OK);
     }
 
+    /*
+    The endpoint for saving operations to database
+     */
     @Operation(
             responses = {
                     @io.swagger.v3.oas.annotations.responses.ApiResponse(
@@ -110,6 +126,9 @@ public class CalculatorController {
         return new ResponseEntity<>(history.getAllHistory(),HttpStatus.OK);
     }
 
+    /*
+    The endpoint for deleting saved operations from database
+     */
     @Operation(
             responses = {
                     @io.swagger.v3.oas.annotations.responses.ApiResponse(
