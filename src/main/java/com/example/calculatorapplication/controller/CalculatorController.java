@@ -19,13 +19,18 @@ import org.springframework.web.bind.annotation.*;
 Controller class for handling arithmetic operations
  */
 @RestController
-@RequestMapping("/api/calculates")
+@RequestMapping("/api/v1/calculator")
 @RequiredArgsConstructor
 @Tag(name = "Calculator Operations")
 public class CalculatorController {
     private final OperationService calculator;
     private final HistoryService history;
 
+
+    @GetMapping("/home")
+    public String home() {
+        return "Welcome to the calculator application";
+    }
     /*
     The endpoint for performing additions
      */

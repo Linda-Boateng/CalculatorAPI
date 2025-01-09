@@ -4,22 +4,26 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
 import com.example.calculatorapplication.repository.HistoryRepository;
-import com.example.calculatorapplication.service.historyservice.HistoryService;
+import com.example.calculatorapplication.service.historyservice.HistoryServiceImpl;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 class HistoryServiceTest {
 
-  @Autowired
-  HistoryService historyService;
-  @MockBean
+  @InjectMocks
+  HistoryServiceImpl historyService;
+  @Mock
   private HistoryRepository historyRepository;
+
+  @BeforeEach
+  void setUp() {
+    historyService = new HistoryServiceImpl(historyRepository);
+  }
 
     @Test
     void testGetAllHistory() {

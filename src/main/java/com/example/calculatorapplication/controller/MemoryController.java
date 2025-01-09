@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/memory")
+@RequestMapping("/api/v1/calculator")
 @RequiredArgsConstructor
 @Tag(name = "Memory Operations")
 public class MemoryController {
@@ -33,7 +33,7 @@ public class MemoryController {
             summary = "Adds to Memory",
             description = "Add current value to memory.")
     @PostMapping("/add")
-    public ResponseEntity<Object> addToMemory(@RequestParam("value") double value) {
+    public ResponseEntity<Double> addToMemory(@RequestParam("value") double value) {
         memoryService.addToMemory(value);
         return ResponseEntity.ok().build();
     }

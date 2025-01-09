@@ -1,21 +1,23 @@
 package com.example.calculatorapplication.services;
 
-import com.example.calculatorapplication.service.memoryservice.MemoryService;
+import com.example.calculatorapplication.service.memoryservice.MemoryServiceImpl;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 class MemoryServiceTest {
 
-    @Autowired
-    MemoryService memoryService;
+    @InjectMocks
+    MemoryServiceImpl memoryService;
 
+//    @BeforeEach void setUp() {
+//        memoryService = new MemoryServiceImpl();
+//    }
   @Test
   void testAddToMemory() {
         memoryService.addToMemory(5);
@@ -25,7 +27,7 @@ class MemoryServiceTest {
     @Test
     void testSubtractMemory() {
         memoryService.subtractFromMemory(3);
-        assertEquals(2.0, memoryService.recallMemory());
+        assertEquals(-3, memoryService.recallMemory());
     }
 
     @Test
