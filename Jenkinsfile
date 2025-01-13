@@ -26,6 +26,7 @@ pipeline {
             steps {
                 // Build the Docker image
                 sh 'docker build -t ${DOCKER_IMAGE} .'
+                sh 'docker run -d -p 3004:6000 ${DOCKER_IMAGE}'
             }
         }
 
