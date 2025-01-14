@@ -37,6 +37,14 @@ pipeline {
             }
         }
 
+         stage('Code Quality Analysis with SonarQube') {
+            steps {
+                withSonarQubeEnv('SonarQube Server') {
+                    sh 'mvn sonar:sonar'
+                }
+            }
+        }
+
         stage('Push Docker Image') {
             steps {
 
