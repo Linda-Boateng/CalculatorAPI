@@ -38,14 +38,21 @@ pipeline {
             }
         }
 
-         stage('Code Quality Analysis with SonarQube') {
-			steps {
-				withSonarQubeEnv('SonarQube Server') {
-					sh "mvn sonar:sonar"
-					//-Dsonar.login=${SONAR_TOKEN}
-}
-            }
-        }
+//         stage('Code Quality Analysis with SonarQube') {
+//			steps {
+//				withSonarQubeEnv('SonarQube Server') {
+//					sh "mvn sonar:sonar"
+//					//-Dsonar.login=${SONAR_TOKEN}
+//}
+//            }
+//        }
+
+ stage('SonarQube Analysis') {
+			def mvn = tool 'Default Maven';
+    withSonarQubeEnv() {
+				sh "${mvn}/bin/mvn sonar:sonar -Dsonar.projectKey=DevOpsLab3 -Dsonar.projectName='DevOpsLab3'"
+    }
+  }
 
         stage('Push Docker Image') {
 			steps {
