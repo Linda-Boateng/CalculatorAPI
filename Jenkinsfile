@@ -41,8 +41,8 @@ pipeline {
          stage('Code Quality Analysis with SonarQube') {
 			steps {
 				withSonarQubeEnv('SonarQube Server') {
-					sh "mvn sonar:sonar -Dsonar.projectKey=DevOpsLab3 -Dsonar.projectName='DevOpsLab3'"
-					//-Dsonar.login=${SONAR_TOKEN}
+					sh "mvn sonar:sonar -Dsonar.projectKey=DevOpsLab3 -Dsonar.projectName='DevOpsLab3' -Dsonar.login=${SONAR_TOKEN}"
+
 }
             }
         }
