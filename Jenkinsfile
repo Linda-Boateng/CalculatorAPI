@@ -48,9 +48,8 @@ pipeline {
 //        }
 
  stage('SonarQube Analysis') {
-			def mvn = tool 'Default Maven';
     withSonarQubeEnv() {
-				sh "${mvn}/bin/mvn sonar:sonar -Dsonar.projectKey=DevOpsLab3 -Dsonar.projectName='DevOpsLab3'"
+				sh "mvn sonar:sonar -Dsonar.projectKey=DevOpsLab3 -Dsonar.projectName='DevOpsLab3'"
     }
   }
 
