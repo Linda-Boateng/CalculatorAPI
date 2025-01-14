@@ -41,7 +41,8 @@ pipeline {
          stage('Code Quality Analysis with SonarQube') {
 			steps {
 				withSonarQubeEnv('SonarQube Server') {
-					sh "mvn sonar:sonar -Dsonar.login=${SONAR_TOKEN}"
+					sh "mvn sonar:sonar"
+					//-Dsonar.login=${SONAR_TOKEN}
 }
             }
         }
